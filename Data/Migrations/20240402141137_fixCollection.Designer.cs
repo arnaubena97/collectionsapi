@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using collectionsapi.Data;
 
@@ -11,9 +12,10 @@ using collectionsapi.Data;
 namespace collectionsapi.Data.Migrations
 {
     [DbContext(typeof(CollectionsapiDbContext))]
-    partial class CollectionsapiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240402141137_fixCollection")]
+    partial class fixCollection
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

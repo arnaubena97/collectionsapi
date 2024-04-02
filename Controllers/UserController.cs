@@ -1,6 +1,7 @@
 ﻿using collectionsapi.Data.Entities;
 using collectionsapi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 namespace CollectionsApi.Controllers;
@@ -21,7 +22,8 @@ public class UserController : ControllerBase
         try
         {
             var user = await _userService.SignUp(newUser);
-            return Ok(user);
+            
+            return Ok(new { id = user.Id, username =user.Username });
         }
         catch (Exception ex)
         {
