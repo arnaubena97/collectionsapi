@@ -48,8 +48,8 @@ public class CollectionService : ICollectionService
         }
         else
         {
+            return null;
             // Collection not found or does not belong to the user
-            throw new InvalidOperationException("Is not your collection");
         }
     }
 
