@@ -1,7 +1,5 @@
 using collectionsapi.Repositories;
-using CollectionsApi.Repositories;
 using collectionsapi.Services;
-using collectionsApi.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

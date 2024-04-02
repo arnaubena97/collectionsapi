@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
-namespace CollectionsApi.Controllers;
+namespace collectionsapi.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
@@ -22,8 +22,8 @@ public class UserController : ControllerBase
         try
         {
             var user = await _userService.SignUp(newUser);
-            
-            return Ok(new { id = user.Id, username =user.Username });
+
+            return Ok(new { id = user.Id, username = user.Username });
         }
         catch (Exception ex)
         {
