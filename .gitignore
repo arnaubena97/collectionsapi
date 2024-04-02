@@ -365,3 +365,7 @@ FodyWeavers.xsd
 # Custom
 
 appsettings.local.json
+.config
+/Properties/ServiceDependencies
+/Properties/serviceDependencies.json
+/Properties/serviceDependencies.collectionsapi - Web Deploy.json
