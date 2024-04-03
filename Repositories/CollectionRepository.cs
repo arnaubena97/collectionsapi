@@ -4,6 +4,7 @@ using collectionsapi.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 public class CollectionRepository : ICollectionRepository
@@ -17,17 +18,17 @@ public class CollectionRepository : ICollectionRepository
 
     public async Task<Collection> GetByIdAsync(int id)
     {
-        return await _dbContext.Collections.FindAsync(id);
+        return await _dbContext.Collections.Include(x => x.CollectionItems).FirstAsync(x => x.Id==id);
     }
 
     public async Task<List<Collection>> GetAllAsync()
     {
-        return await _dbContext.Collections.ToListAsync();
+        return await _dbContext.Collections.Include(x => x.CollectionItems).ToListAsync();
     }
 
     public async Task<List<Collection>> GetAllByUserIdAsync(int userId)
     {
-        return await _dbContext.Collections.Where(c => c.UserId == userId).ToListAsync();
+        return await _dbContext.Collections.Include(x => x.CollectionItems).Where(c => c.UserId == userId).ToListAsync();
     }
 
     public async Task AddAsync(Collection collection)
